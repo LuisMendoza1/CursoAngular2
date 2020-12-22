@@ -1,0 +1,16 @@
+<h1>SEGUNDO EJERCICIO</h1>
+<h2>Contenedores y templates: condiciones *ngIf</h2>
+<ng-container *ngIf="!isLogged; else logueado">   <!--Contenedor: agrupa lo que quieras dentro, por ejemplo varias condiciones-->
+    <button (click)="isLogged=true">Iniciar sesión</button> <!--Si no está logeado-->
+    <button>Registrarse</button>
+    <button (click)="nivel = nivel + 1">Suma nivel</button>
+    <div>{{ nivel }}</div>
+</ng-container>
+
+<ng-template #logueado> <!--Template: estructura que permite darle un nombre (parecido al container)-->
+    <button>Ir a administración</button>
+    <button>Ir a mi perfil</button>
+    <button (click)="isLogged=false">Cerar sesión</button>
+</ng-template>
+
+<button *ngIf="nivel >= 10">Habitación VIP</button> <!--Que solo puedan entrar aquellos que tengan un nivel mayor que 10-->

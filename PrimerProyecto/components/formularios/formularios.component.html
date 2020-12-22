@@ -1,0 +1,20 @@
+<h1>SEXTO EJERCICIO</h1>
+<h2>Formularios</h2>
+
+<!-- ngSubmit para enviar y validar -->
+<form [formGroup]="signupForm" (ngSubmit)="enviar(signupForm.value)">
+    <label>Nombre: </label>
+    <input formControlName="nombre" input="text" />
+    <br />
+    <label>Usuario: </label>
+    <input formControlName="usuario" input="text" />
+    <br />
+    <label>Email: </label>
+    <input formControlName="email" input="email" />
+    <div *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Es necesario introducir el email</div>
+    <br />
+    <label>Contraseña: </label>
+    <input formControlName="clave" input="password" />
+    <br />
+    <button [disabled]="signupForm.invalid" type="submit">Registrarse</button>
+</form>

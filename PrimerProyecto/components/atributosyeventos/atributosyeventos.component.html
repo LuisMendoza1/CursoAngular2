@@ -1,0 +1,22 @@
+<h1>TERCER EJERCICIO</h1>
+<!--Eventos (entre parentesis): por ejemplo click es un evento de button en html, pero sin el ONclick, onLOAD-->
+<!--Artributos [entre corchetes]: type, disabled-->
+<h3>Tu nombre es: {{ titulo }}</h3>
+
+<!-- Si pongo corchete y parentesis puedo conseguir el dato por el input y 
+además permite imprimirlo por pantalla a la vez (atributo + evento)
+por ejemplo: ngModel o ngModelChange-->
+
+<!-- Con ngModel me permite cambiar algo en un sitio automaticamente
+después de escribirlo por el input -->
+<input type = "text" [(ngModel)] = "titulo" (ngModelChange)="log($event)">
+
+<!-- Cambia el boton de activado a desactivado -->
+<button (click)="desactivado=!desactivado">Cambiar desactivado</button>
+
+<h3>Has seleccionado: {{ seleccion }}</h3>
+<select [(ngModel)]="seleccion">
+    <option value="Toyota">Toyota</option>
+    <option value="Hyundai">Hyundai</option>
+    <option value="Mercedes">Mercedes</option>
+</select>
